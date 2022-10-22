@@ -5,6 +5,8 @@ date: 2021-03-19
 ---
 
 import { ArtLoader } from '../src/ArtLoader'
+import { useSSG } from 'nextra/ssg'
+import { allData } from '../src/getImages'
 
 # While in the moment with it...
 
@@ -14,4 +16,14 @@ In chronological order, from bottom right (oldest) to newest, you can see all cr
 
 ---
 
+<TestSSG />
 <ArtLoader />
+
+export function TestSSG() {
+  const { testing } = useSSG()
+  return <p>{testing.join(' ')}</p>
+}
+
+export const getStaticProps = ({ params }) => ({
+  props: { ssg: { testing: allData } }
+})

@@ -10,11 +10,10 @@ export function ArtGrid({ images }) {
     </div>
 
     // - [ ] Load a list of images
-
     // - [ ] All images will be a small square
     // - [ ] Display the images in a grid
     // - [ ] Order the grid from:
-    //   top left: newest
-    //   bottom right: oldest
+    //         top left: newest
+    //         bottom right: oldest
   )
 }

@@ -7,5 +7,9 @@ import { ArtGrid } from '../src/ArtGrid'
 const images = [image1, image2, image3, image4]
 
 export function ArtLoader() {
-  return <ArtGrid images={images} />
+  return (
+    <>
+      <ArtGrid images={images} />
+    </>
+  )
 }
