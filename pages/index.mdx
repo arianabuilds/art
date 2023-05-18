@@ -5,8 +5,6 @@ date: 2021-03-19
 ---
 
 import { ArtLoader } from '../src/ArtLoader'
-import { useSSG } from 'nextra/ssg'
-import { allData } from '../src/getImages'
 
 # In The Moment
 
@@ -16,14 +14,4 @@ Click on each one to experience it in full size, and maybe see it on a cool obje
 
 ---
 
-<TestSSG />
 <ArtLoader />
-
-export function TestSSG() {
-  const { testing } = useSSG()
-  return <p>{testing.join(' ')}</p>
-}
-
-export const getStaticProps = ({ params }) => ({
-  props: { ssg: { testing: allData } }
-})
