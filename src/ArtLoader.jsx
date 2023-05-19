@@ -10,9 +10,11 @@ export function ArtLoader() {
       .then((data) => {
         console.log(data)
         setImages(
-          data.map(
-            (item) => 'https://arianaivan.github.io/art-images' + item.file
-          )
+          data
+            .map(
+              (item) => 'https://arianaivan.github.io/art-images' + item.file
+            )
+            .reverse()
         )
       })
       .catch((error) => {

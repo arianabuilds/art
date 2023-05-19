@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import useArrowKeys from './useArrowKeys'
 
 export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -23,38 +24,20 @@ export function ArtGrid({ images }) {
     setCurrentIndex(previousIndex)
   }
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (isModalVisible) {
-        if (event.key === 'ArrowRight') {
-          showNextImage()
-        } else if (event.key === 'ArrowLeft') {
-          showPreviousImage()
-        }
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [isModalVisible, currentIndex])
+  useArrowKeys(isModalVisible, showNextImage, showPreviousImage)
 
   return (
     <div className="relative">
       <h2>ArtGrid Component</h2>
-      {images
-        ?.slice()
-        .reverse()
-        .map((image, index) => (
-          <img
-            className="inline object-cover !my-0 aspect-square hover:scale-110 transition"
-            key={index}
-            src={image}
-            width={100}
-            onClick={() => showModal(index)}
-          />
-        ))}
+      {images?.slice().map((image, index) => (
+        <img
+          className="inline object-cover !my-0 aspect-square hover:scale-110 transition"
+          key={index}
+          src={image}
+          width={100}
+          onClick={() => showModal(index)}
+        />
+      ))}
 
       {isModalVisible && (
         <div
