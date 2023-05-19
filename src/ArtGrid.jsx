@@ -28,7 +28,6 @@ export function ArtGrid({ images }) {
 
   return (
     <div className="relative">
-      <h2>ArtGrid Component</h2>
       {images?.slice().map((image, index) => (
         <img
           className="inline object-cover !my-0 aspect-square hover:scale-110 transition"
