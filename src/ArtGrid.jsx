@@ -31,10 +31,15 @@ export function ArtGrid({ images }) {
 
       {isModalVisible && (
         <div
-          className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-90"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
           onClick={hideModal}
         >
-          <img className="w-2/3" src={currentImage} />
+          <div className="flex items-center justify-center w-4/5 h-4/5">
+            <img
+              className="object-contain max-w-full max-h-full"
+              src={currentImage}
+            />
+          </div>
         </div>
       )}
     </div>
