@@ -2,15 +2,25 @@ import { useState } from 'react'
 
 export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
-  const [currentImage, setCurrentImage] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  const showModal = (image) => {
-    setCurrentImage(image)
+  const showModal = (index) => {
+    setCurrentIndex(index)
     setIsModalVisible(true)
   }
 
   const hideModal = () => {
     setIsModalVisible(false)
+  }
+
+  const showNextImage = () => {
+    const nextIndex = (currentIndex + 1) % images.length
+    setCurrentIndex(nextIndex)
+  }
+
+  const showPreviousImage = () => {
+    const previousIndex = (currentIndex - 1 + images.length) % images.length
+    setCurrentIndex(previousIndex)
   }
 
   return (
@@ -25,7 +35,7 @@ export function ArtGrid({ images }) {
             key={index}
             src={image}
             width={100}
-            onClick={() => showModal(image)}
+            onClick={() => showModal(index)}
           />
         ))}
 
@@ -34,12 +44,30 @@ export function ArtGrid({ images }) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
           onClick={hideModal}
         >
+          <button
+            className="absolute text-3xl text-white transform -translate-y-1/2 left-4 top-1/2"
+            onClick={(e) => {
+              e.stopPropagation()
+              showPreviousImage()
+            }}
+          >
+            &lt;
+          </button>
           <div className="flex items-center justify-center w-4/5 h-4/5">
             <img
               className="object-contain max-w-full max-h-full"
-              src={currentImage}
+              src={images[currentIndex]}
             />
           </div>
+          <button
+            className="absolute text-3xl text-white transform -translate-y-1/2 right-4 top-1/2"
+            onClick={(e) => {
+              e.stopPropagation()
+              showNextImage()
+            }}
+          >
+            &gt;
+          </button>
         </div>
       )}
     </div>
