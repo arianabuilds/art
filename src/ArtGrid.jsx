@@ -7,7 +7,7 @@ export function ArtGrid({ images }) {
         .reverse()
         .map((image, index) => (
           <img
-            className="inline object-cover !my-0 aspect-square hover:aspect-auto hover:scale-[350%] transition"
+            className="inline object-cover !my-0 aspect-square hover:scale-110 transition"
             key={index}
             src={image}
             width={100}
