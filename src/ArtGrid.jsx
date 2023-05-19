@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -22,6 +22,23 @@ export function ArtGrid({ images }) {
     const previousIndex = (currentIndex - 1 + images.length) % images.length
     setCurrentIndex(previousIndex)
   }
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (isModalVisible) {
+        if (event.key === 'ArrowRight') {
+          showNextImage()
+        } else if (event.key === 'ArrowLeft') {
+          showPreviousImage()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isModalVisible, currentIndex])
 
   return (
     <div className="relative">
