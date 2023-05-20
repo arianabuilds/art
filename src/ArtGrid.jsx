@@ -5,8 +5,6 @@ export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  console.log(images)
-
   const showModal = (index) => {
     setCurrentIndex(index)
     setIsModalVisible(true)
@@ -59,6 +57,9 @@ export function ArtGrid({ images }) {
               className="object-contain max-w-full max-h-full"
               src={images[currentIndex].imageUrl}
             />
+            <p className="absolute bottom-0 w-full text-center text-slate-300/30">
+              {images[currentIndex].date.toISOString().slice(0, 10)}
+            </p>
           </div>
           <button
             className="absolute text-3xl text-white transform -translate-y-1/2 right-4 top-1/2"
