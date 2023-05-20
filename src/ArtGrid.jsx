@@ -5,6 +5,8 @@ export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  console.log(images)
+
   const showModal = (index) => {
     setCurrentIndex(index)
     setIsModalVisible(true)
@@ -32,7 +34,7 @@ export function ArtGrid({ images }) {
         <img
           className="inline object-cover !my-0 aspect-square hover:scale-110 transition cursor-pointer"
           key={index}
-          src={image}
+          src={image.imageUrl}
           width={70}
           onClick={() => showModal(index)}
         />
@@ -55,7 +57,7 @@ export function ArtGrid({ images }) {
           <div className="flex items-center justify-center w-4/5 h-4/5">
             <img
               className="object-contain max-w-full max-h-full"
-              src={images[currentIndex]}
+              src={images[currentIndex].imageUrl}
             />
           </div>
           <button

@@ -27,7 +27,7 @@ export function ArtLoader() {
         processedData.sort((b, a) => a.date - b.date)
 
         // Set the sorted image URLs
-        setImages(processedData.map((item) => item.imageUrl))
+        setImages(processedData)
       })
       .catch((error) => {
         console.error('Error fetching image data:', error)
