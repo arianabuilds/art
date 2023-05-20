@@ -12,9 +12,9 @@ export function ArtLoader() {
         const processedData = data.map((item) => {
           // Check if the file name can be converted to a date
           const dateString = item.file.split('/').pop().split('.')[0] // Assumes date is at the end of the file name
-          const date = !isNaN(Date.parse(dateString))
-            ? new Date(dateString)
-            : new Date(item.uploadDate)
+
+          // Convert the first three hyphenated sections to a date
+          const date = new Date(dateString.split('-').slice(0, 3).join('-'))
 
           return {
             ...item,
@@ -23,8 +23,10 @@ export function ArtLoader() {
           }
         })
 
-        // Sort the processed data by date
-        processedData.sort((b, a) => a.date - b.date)
+        // Sort the processed data by date, then by file name (which includes the index for multiple files per day)
+        processedData.sort(
+          (b, a) => a.date - b.date || a.file.localeCompare(b.file)
+        )
 
         // Set the sorted image URLs
         setImages(processedData)
