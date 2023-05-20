@@ -8,14 +8,13 @@ export function ArtLoader() {
     fetch('https://arianaivan.github.io/art-images/all-images.json')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         // Convert data to include date objects for sorting
         const processedData = data.map((item) => {
           // Check if the file name can be converted to a date
           const dateString = item.file.split('/').pop().split('.')[0] // Assumes date is at the end of the file name
-          const date = isNaN(Date.parse(dateString))
-            ? new Date(item.uploadDate)
-            : new Date(dateString)
+          const date = !isNaN(Date.parse(dateString))
+            ? new Date(dateString)
+            : new Date(item.uploadDate)
 
           return {
             ...item,
