@@ -33,7 +33,7 @@ export function ArtGrid({ images }) {
           className="inline object-cover !my-0 aspect-square hover:scale-110 transition cursor-pointer"
           key={index}
           src={image}
-          width={100}
+          width={70}
           onClick={() => showModal(index)}
         />
       ))}
