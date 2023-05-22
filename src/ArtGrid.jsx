@@ -4,7 +4,7 @@ import useArrowKeys from './useArrowKeys'
 export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [thumbnailWidth, setThumbnailWidth] = useState(80)
+  const [thumbnailWidth, setThumbnailWidth] = useState(60)
 
   const showModal = (index) => {
     setCurrentIndex(index)
@@ -31,6 +31,7 @@ export function ArtGrid({ images }) {
 
   return (
     <div className="relative leading-[5px]">
+      <p>{thumbnailWidth}</p>
       <input
         type="range"
         min="10"
