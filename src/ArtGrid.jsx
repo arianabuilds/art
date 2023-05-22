@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useArrowKeys from './useArrowKeys'
 
 export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [thumbnailWidth, setThumbnailWidth] = useState(60)
+
+  // If loading on small screen, set default thumbnail width smaller
+  useEffect(() => {
+    if (typeof window !== 'object') return
+    if (window.innerWidth <= 640) setThumbnailWidth(34)
+  }, [])
 
   const showModal = (index) => {
     setCurrentIndex(index)
@@ -31,7 +37,7 @@ export function ArtGrid({ images }) {
 
   return (
     <div className="relative leading-[5px]">
-      <p>{thumbnailWidth}</p>
+      {/* <p>{thumbnailWidth}</p> */}
       <input
         type="range"
         min="10"
