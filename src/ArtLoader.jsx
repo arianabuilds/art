@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { ArtGrid } from '../src/ArtGrid'
 
+const gitHubPages = 'https://arianaivan.github.io/art-images'
+
 export function ArtLoader() {
   const [images, setImages] = useState([])
 
   useEffect(() => {
-    fetch('https://arianaivan.github.io/art-images/all-images.json')
+    fetch(gitHubPages + '/all-images.json')
       .then((response) => response.json())
       .then((data) => {
         // Convert data to include date objects for sorting
@@ -19,9 +21,9 @@ export function ArtLoader() {
           return {
             ...item,
             date,
-            imageUrl: 'https://arianaivan.github.io/art-images' + item.file,
+            imageUrl: gitHubPages + item.file,
             thumbnailUrl:
-              'https://arianaivan.github.io/art-images/thumbnails' + item.file // assumes thumbnails are stored in a 'thumbnails' directory
+              gitHubPages + item.file.replace('images', 'thumbnails') // assumes thumbnails are stored in a 'thumbnails' directory
           }
         })
 
