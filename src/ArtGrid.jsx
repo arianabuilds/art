@@ -28,7 +28,7 @@ export function ArtGrid({ images }) {
 
   return (
     <div className="relative leading-[5px]">
-      <p>{thumbnailWidth}</p>
+      {/* <p>{thumbnailWidth}</p> */}
       <input
         type="range"
         min="10"
