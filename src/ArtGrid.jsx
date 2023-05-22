@@ -12,11 +12,6 @@ export function ArtGrid({ images }) {
     if (window.innerWidth <= 640) setThumbnailWidth(34)
   }, [])
 
-  const showModal = (index) => {
-    setCurrentIndex(index)
-    setIsModalVisible(true)
-  }
-
   const showNextImage = () => {
     const nextIndex = (currentIndex + 1) % images.length
     setCurrentIndex(nextIndex)
@@ -52,7 +47,10 @@ export function ArtGrid({ images }) {
           key={index}
           src={image.thumbnailUrl} // use thumbnailUrl here
           width={thumbnailWidth}
-          onClick={() => showModal(index)}
+          onClick={() => {
+            setCurrentIndex(index)
+            setIsModalVisible(true)
+          }}
         />
       ))}
 
