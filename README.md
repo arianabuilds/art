@@ -1,3 +1,3 @@
 # Art
 
-Archive of all digital art and paintings created.
+Archive of all digital drawings and paintings created.

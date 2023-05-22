@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArtGrid } from '../src/ArtGrid'
 
-const gitHubPages = 'https://arianaivan.github.io/art-images'
+const gitHubPages = 'https://arianabuilds.github.io/art-images'
 
 export function ArtLoader() {
   const [images, setImages] = useState([])

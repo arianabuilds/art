@@ -4,7 +4,7 @@ export default function Document() {
   const meta = {
     title: 'Art • Landed On Earth',
     description: 'Digital drawings and paintings',
-    image: 'https://arianaivan.github.io/art-images/images/2021-12-09-2.jpg'
+    image: 'https://arianabuilds.github.io/art-images/images/2021-12-09-2.jpg'
   }
 
   return (
