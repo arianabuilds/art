@@ -3,12 +3,15 @@ const YEAR = new Date().getFullYear()
 export default {
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
-      <time>{YEAR}</time> © Your Name.
-      <a href="/feed.xml">RSS</a>
+      <time>1{YEAR}</time> © Art •{' '}
+      <a
+        href="http://www.landedonearth.com"
+        target="_blank"
+        className="text-blue-500 underline"
+      >
+        Landed On Earth
+      </a>
       <style jsx>{`
-        a {
-          float: right;
-        }
         @media screen and (max-width: 480px) {
           article {
             padding-top: 2rem;
