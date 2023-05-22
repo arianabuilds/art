@@ -10,7 +10,11 @@ export default {
         className="text-blue-500 underline"
       >
         Landed On Earth
-      </a>
+      </a>{' '}
+      <div className="text-xs">
+        Images are not for personal or commercial use. If you want to use them,
+        nicely ask for permission art@landedonearth.com{' '}
+      </div>
       <style jsx>{`
         @media screen and (max-width: 480px) {
           article {
