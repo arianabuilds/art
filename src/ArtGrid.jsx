@@ -17,10 +17,6 @@ export function ArtGrid({ images }) {
     setIsModalVisible(true)
   }
 
-  const hideModal = () => {
-    setIsModalVisible(false)
-  }
-
   const showNextImage = () => {
     const nextIndex = (currentIndex + 1) % images.length
     setCurrentIndex(nextIndex)
@@ -37,7 +33,7 @@ export function ArtGrid({ images }) {
 
   return (
     <div className="relative leading-[5px]">
-      {/* <p>{thumbnailWidth}</p> */}
+      <p>{thumbnailWidth}</p>
       <input
         type="range"
         min="10"
@@ -63,7 +59,7 @@ export function ArtGrid({ images }) {
       {isModalVisible && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
-          onClick={hideModal}
+          onClick={() => setIsModalVisible(false)}
         >
           <button
             className="absolute text-3xl text-white transform -translate-y-1/2 left-4 top-1/2"
