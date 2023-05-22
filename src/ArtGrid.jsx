@@ -4,6 +4,7 @@ import useArrowKeys from './useArrowKeys'
 export function ArtGrid({ images }) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [thumbnailWidth, setThumbnailWidth] = useState(80)
 
   const showModal = (index) => {
     setCurrentIndex(index)
@@ -27,13 +28,22 @@ export function ArtGrid({ images }) {
   useArrowKeys(isModalVisible, showNextImage, showPreviousImage)
 
   return (
-    <div className="relative">
+    <div className="relative leading-[5px]">
+      <input
+        type="range"
+        min="10"
+        max="100"
+        className="block mb-4"
+        value={thumbnailWidth}
+        onChange={(e) => setThumbnailWidth(e.target.value)}
+      />
+
       {images?.slice().map((image, index) => (
         <img
           className="inline object-cover !my-0 aspect-square hover:scale-110 transition cursor-pointer"
           key={index}
           src={image.thumbnailUrl} // use thumbnailUrl here
-          width={70}
+          width={thumbnailWidth}
           onClick={() => showModal(index)}
         />
       ))}
