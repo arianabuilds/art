@@ -19,7 +19,9 @@ export function ArtLoader() {
           return {
             ...item,
             date,
-            imageUrl: 'https://arianaivan.github.io/art-images' + item.file
+            imageUrl: 'https://arianaivan.github.io/art-images' + item.file,
+            thumbnailUrl:
+              'https://arianaivan.github.io/art-images/thumbnails' + item.file // assumes thumbnails are stored in a 'thumbnails' directory
           }
         })
 
