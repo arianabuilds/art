@@ -5,7 +5,7 @@ export default {
     <small style={{ display: 'block', marginTop: '8rem' }}>
       <time>1{YEAR}</time> © Art •{' '}
       <a
-        href="http://www.landedonearth.com"
+        href="https://landedonearth.com"
         target="_blank"
         className="text-blue-500 underline"
       >
