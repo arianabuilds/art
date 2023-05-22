@@ -27,13 +27,18 @@ export function ArtGrid({ images }) {
 
   useArrowKeys(isModalVisible, showNextImage, showPreviousImage)
 
+  const pct = (thumbnailWidth - 10) / 0.9
+
   return (
     <div className="relative leading-[5px]">
       <input
         type="range"
         min="10"
         max="100"
-        className="block w-full h-2 mb-4 rounded-full outline-none appearance-none cursor-pointer bg-lime-500/70"
+        className="block w-full h-2 mb-4 rounded-full outline-none appearance-none cursor-pointer"
+        style={{
+          background: `linear-gradient(to right, rgb(132 204 22 / 0.7) ${pct}%, rgb(132 204 22 / 0.2) ${pct}%)`
+        }}
         value={thumbnailWidth}
         onChange={(e) => setThumbnailWidth(e.target.value)}
       />
