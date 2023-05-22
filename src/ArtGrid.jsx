@@ -33,7 +33,7 @@ export function ArtGrid({ images }) {
         type="range"
         min="10"
         max="100"
-        className="block mb-4"
+        className="block w-full h-2 mb-4 rounded-full outline-none appearance-none cursor-pointer bg-lime-500/70"
         value={thumbnailWidth}
         onChange={(e) => setThumbnailWidth(e.target.value)}
       />
