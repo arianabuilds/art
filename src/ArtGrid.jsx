@@ -32,7 +32,7 @@ export function ArtGrid({ images }) {
         <img
           className="inline object-cover !my-0 aspect-square hover:scale-110 transition cursor-pointer"
           key={index}
-          src={image.imageUrl}
+          src={image.thumbnailUrl} // use thumbnailUrl here
           width={70}
           onClick={() => showModal(index)}
         />
