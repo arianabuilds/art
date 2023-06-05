@@ -17,10 +17,12 @@ export function ArtLoader() {
 
           // Convert the first three hyphenated sections to a date
           const date = new Date(dateString.split('-').slice(0, 3).join('-'))
+          const sameDayIndex = dateString.split('-')[3]
 
           return {
             ...item,
             date,
+            sameDayIndex,
             imageUrl: gitHubPages + item.file,
             thumbnailUrl:
               gitHubPages + item.file.replace('images', 'thumbnails') // assumes thumbnails are stored in a 'thumbnails' directory
@@ -29,7 +31,7 @@ export function ArtLoader() {
 
         // Sort the processed data by date, then by file name (which includes the index for multiple files per day)
         processedData.sort(
-          (b, a) => a.date - b.date || a.file.localeCompare(b.file)
+          (b, a) => a.date - b.date || a.sameDayIndex - b.sameDayIndex
         )
 
         // Set the sorted image URLs
